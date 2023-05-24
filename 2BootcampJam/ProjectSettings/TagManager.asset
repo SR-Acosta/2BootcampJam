@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Mula
+  - Treasure
   layers:
   - Default
   - TransparentFX
