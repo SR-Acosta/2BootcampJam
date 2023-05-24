@@ -15,16 +15,12 @@ public class mulaEnemyDetection : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerStay2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             //aiPath.canMove = false;
             aiPath.enabled = !aiPath.enabled;
-        }
-        else
-        {
-            aiPath.enabled = aiPath.enabled;
         }
     }
 }
