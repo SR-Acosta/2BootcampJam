@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
         }
         transform.Translate(direction * Time.deltaTime * playerSpeed);
     }
-    private void SideTurning()//Function in charge of flipping the player sprite and it's children on que X axis, thanks to Santi Acosta, what a bendición mano
+    private void SideTurning() 
+        //Function in charge of flipping the player sprite and it's children on que X axis, thanks to Santi Acosta, what a bless mano
     {
         if (transform.position.x - lastX > 0)
         {
