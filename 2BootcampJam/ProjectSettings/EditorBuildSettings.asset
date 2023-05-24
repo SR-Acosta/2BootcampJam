@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/AcostaLab.unity
+    path: Assets/AcostaWork/Scenes/AcostaLab.unity
     guid: 6cfeba992d8bf46d9a85cd9ca5a71807
   m_configObjects: {}
