@@ -3,18 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
-
 public class enemySawPlayer : MonoBehaviour
 {
-   public AIDestinationSetter targetManager;
-   public Transform playerDetected;
-
+   private AIDestinationSetter targetManager;
+   private Transform playerDetected;
+   private Transform reloadMula;
    private void Start()
    {
+      targetManager = GetComponentInParent<AIDestinationSetter>();
       targetManager.target = GameObject.FindWithTag("Mula").transform;
       playerDetected = GameObject.FindWithTag("Player").transform;
+      reloadMula =  GameObject.FindWithTag("Mula").transform;
    }
-
    private void OnTriggerStay2D(Collider2D other)
    {
       if (other.gameObject.tag == "Player")
@@ -22,12 +22,11 @@ public class enemySawPlayer : MonoBehaviour
          targetManager.target = playerDetected;
       }
    }
-
    private void OnTriggerExit2D(Collider2D other)
    {
       if (other.gameObject.tag == "Player")
       {
-         targetManager.target = GameObject.FindWithTag("Mula").transform;
+         targetManager.target = reloadMula;
       }
    }
 }
