@@ -11,17 +11,15 @@ namespace LonquersWork.Scripts
         // Prefab of the item that we want the enemy to drop
         public GameObject itemPrefab;
         
-        private float randomNumber;
-        
         [Header("Min Value configuration")]
         [Tooltip("this is the minimum value that the random number can take")]
-        public float minValue = 0;
+        public int minValue = 0;
         [Header("Max Value configuration")]
         [Tooltip("This is the maximum value that the random number can take")]
-        public float maxValue = 9;
+        public int maxValue = 0;
         [Header("Lottery configuration")]
         [Tooltip("This is the number that the random number must match to drop the item")]
-        public float lottery = 0;
+        public int lottery = 0;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -36,13 +34,12 @@ namespace LonquersWork.Scripts
         // We call this function when the enemy is defeated
         private void Defeat()
         {
-            randomNumber = Random.Range(minValue, maxValue);
-            if (randomNumber == lottery)
+            float randomNumber = Random.Range(minValue, maxValue);
+            Debug.Log(randomNumber);
+            if (Mathf.Approximately(randomNumber, lottery))
             {
-                // we create the item in the enemy's position
                 Instantiate(itemPrefab, transform.position, Quaternion.identity);
             }
-            // we defeat the enemy
             Destroy(gameObject);
         }
     }
