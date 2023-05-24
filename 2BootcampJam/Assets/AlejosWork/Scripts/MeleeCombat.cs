@@ -10,10 +10,18 @@ public class MeleeCombat : MonoBehaviour
     private float attackRadius;//As damage has circular shape, asigns the radius os such circular area
     [SerializeField]
     private float attackDamage;//damage quantity
+    [SerializeField]
+    private float attackInterval;
+    private float timeSinceLastAttack;
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1")){
+        if(timeSinceLastAttack > 0)
+        {
+            timeSinceLastAttack -= Time.deltaTime;
+        }
+        if (Input.GetButtonDown("Fire1") && timeSinceLastAttack <= 0){
             Attack();
+            timeSinceLastAttack = attackInterval;
         }
     }
     private void Attack()
