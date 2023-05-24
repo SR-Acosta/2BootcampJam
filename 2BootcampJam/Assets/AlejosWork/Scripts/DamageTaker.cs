@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class DamageTaker : MonoBehaviour
 {
     [SerializeField]
     private float health;
     public void TakeDamage(float damage)
     {
-        if(health >= 1f)
+        if(health > 0f)
         {
             health -= damage;
         }
