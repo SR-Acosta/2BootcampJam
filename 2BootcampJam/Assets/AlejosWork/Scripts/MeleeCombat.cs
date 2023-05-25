@@ -29,9 +29,9 @@ public class MeleeCombat : MonoBehaviour
         Collider2D[] attackedObjects = Physics2D.OverlapCircleAll(attackController.position, attackRadius);//this tracks the objects reached by the player's attack
         foreach (Collider2D attackedObject in attackedObjects)
         {
-            if (attackedObject.CompareTag("Enemy"))
+            if (attackedObject.CompareTag("Enemy") || attackedObject.CompareTag("WeakWall"))
             {
-                attackedObject.transform.GetComponent<Enemy>().TakeDamage(attackDamage);
+                attackedObject.transform.GetComponent<DamageTaker>().TakeDamage(attackDamage);
             }
         }
     }
