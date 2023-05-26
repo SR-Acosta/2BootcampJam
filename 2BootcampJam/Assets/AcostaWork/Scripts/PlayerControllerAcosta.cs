@@ -1,19 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerAcosta : MonoBehaviour
 {
     [SerializeField]
     private float playerSpeed;
     private Vector2 direction;
     private float lastX;
     public Transform playerGX;
-    
+    public Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponentInChildren<Animator>();
+    }
+
     private void Update()
     {
+        anim.SetBool("isAttacking",false);
         MovePlayer();
         SideTurning();
+        attackPlayer();
     }
     private void MovePlayer()//Simple normalized Player movement function
     {
@@ -23,7 +32,18 @@ public class PlayerController : MonoBehaviour
             direction.Normalize();
         }
         transform.Translate(direction * Time.deltaTime * playerSpeed);
+        anim.SetFloat("moveX", direction.x);
+        
     }
+
+    private void attackPlayer()
+    {
+        if (Input.GetKeyDown("k"))
+        {
+            anim.SetBool("isAttacking",true);
+        }
+    }
+    
     private void SideTurning() 
         //Function in charge of flipping the player sprite and it's children on que X axis, thanks to Santi Acosta, what a bless mano
     {
