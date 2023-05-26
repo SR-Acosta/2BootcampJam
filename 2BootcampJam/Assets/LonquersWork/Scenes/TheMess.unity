@@ -149,6 +149,18 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: itemPrefabs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: itemPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2924134616123519643, guid: f03716efbfbd46c47b66e01c47b1a49f, type: 3}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: itemDrops.Array.data[0].dropProbability
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -877,6 +889,10 @@ PrefabInstance:
     - target: {fileID: -4351112411643357134, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_Offset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: noDropProbability
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
