@@ -12,7 +12,6 @@ public class makeDamageEnemy : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<enemyLife>().TakeDamage(attackDamage);
-            
         }
     }
 }
