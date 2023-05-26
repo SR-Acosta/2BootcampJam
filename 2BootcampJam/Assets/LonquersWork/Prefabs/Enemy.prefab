@@ -98,10 +98,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4049a818ac8465b4c9b9db177b574b45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 2924134616123519643, guid: f03716efbfbd46c47b66e01c47b1a49f, type: 3}
-  minValue: 0
-  maxValue: 1
-  lottery: 0
+  itemDrops:
+  - itemPrefab: {fileID: 1157252887415554532, guid: b3e01824c8043584f962c78703eacbfc, type: 3}
+    dropProbability: 5
+  - itemPrefab: {fileID: 2924134616123519643, guid: f03716efbfbd46c47b66e01c47b1a49f, type: 3}
+    dropProbability: 2
+  - itemPrefab: {fileID: 5035554891034742657, guid: c55a39e86c432b34cbb510fc15c8a9b2, type: 3}
+    dropProbability: 1
+  noDropProbability: 50
+  dropRange: 2
 --- !u!61 &-4351112411643357134
 BoxCollider2D:
   m_ObjectHideFlags: 0
