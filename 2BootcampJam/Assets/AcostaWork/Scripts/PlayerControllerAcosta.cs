@@ -15,7 +15,6 @@ public class PlayerControllerAcosta : MonoBehaviour
     }
     private void Update()
     {
-        anim.SetBool("isAttacking",false);
         MovePlayer();
         SideTurning();
         attackPlayer();
@@ -36,6 +35,11 @@ public class PlayerControllerAcosta : MonoBehaviour
         if (Input.GetKeyDown("k"))
         {
             anim.SetBool("isAttacking",true);
+        }
+
+        if (Input.GetKeyUp("k"))
+        {
+            anim.SetBool("isAttacking",false);
         }
     }
     private void SideTurning() 
