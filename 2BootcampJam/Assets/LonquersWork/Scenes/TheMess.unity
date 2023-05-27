@@ -150,6 +150,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: noDropProbability
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: itemPrefabs.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -160,6 +164,10 @@ PrefabInstance:
     - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: itemDrops.Array.data[0].dropProbability
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: itemDrops.Array.data[1].dropProbability
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
@@ -227,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: noDropProbability
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -287,6 +299,10 @@ PrefabInstance:
     - target: {fileID: -4351112411643357134, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_Offset.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: noDropProbability
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
@@ -606,6 +622,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: noDropProbability
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -829,6 +849,10 @@ PrefabInstance:
       propertyPath: maxValue
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
+      propertyPath: noDropProbability
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -892,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3112737896896184635, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: noDropProbability
-      value: 10
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2807151457930220356, guid: b646e0e54833d3a439d15b05b72d8e8c, type: 3}
       propertyPath: m_RootOrder
