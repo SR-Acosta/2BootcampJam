@@ -32,4 +32,20 @@ public class skelletonGX : MonoBehaviour
             anim.SetFloat("skMoving", distance.x);
         }
     }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Attacks")
+        {
+            anim.SetTrigger("wasHit1");
+            anim.SetBool("wasHit",false);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.tag == "Attacks")
+        {
+            anim.ResetTrigger("wasHit1");
+            anim.SetBool("wasHit",true);
+        }    
+    }
 }

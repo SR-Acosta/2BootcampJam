@@ -8,9 +8,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
    public int recollectedTreasures;
+   public int totalTreasures;
    private void Start()
-
    {
       recollectedTreasures = 0;
+      totalTreasures = 0;
    }
 }

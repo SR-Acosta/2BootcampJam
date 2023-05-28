@@ -1,17 +1,13 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
-public class enemyLife : MonoBehaviour
+public class playerLife : MonoBehaviour
 {
     public Slider slider;
     public float lifeCount;
     public Gradient gradient;
     public Image fill;
-    private Animator anim;
     private void Start()
     {
         slider.maxValue = lifeCount;
@@ -19,7 +15,6 @@ public class enemyLife : MonoBehaviour
         slider = GetComponentInChildren<Slider>();
         slider.gameObject.SetActive(false);
         fill.color = gradient.Evaluate(1f);
-        anim = GetComponent<Animator>();
     }
     private void Update()
     {        
@@ -29,17 +24,16 @@ public class enemyLife : MonoBehaviour
         }
         fill.color = gradient.Evaluate(slider.normalizedValue);
     }
-    public void TakeDamage(float damage)
-   {
-       slider.value -= damage;
-       if (slider.value <= 0)
-       {
-           Die();   
-       }
-   }
-   private void Die()
-   {
-       anim.SetBool("isDeath",true);
-       Destroy(gameObject, 10f);
-   }
+    public void TakeDamagePlayer(float damage)
+    {
+        slider.value -= damage;
+        if (slider.value <= 0)
+        {
+            Die();   
+        }
+    }
+    private void Die()
+    {
+        Destroy(gameObject, 2f);
+    }
 }
