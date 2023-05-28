@@ -12,6 +12,7 @@ public class enemyLife : MonoBehaviour
     public Gradient gradient;
     public Image fill;
     private Animator anim;
+    private waveManager _waveManager;
     private void Start()
     {
         slider.maxValue = lifeCount;
@@ -20,6 +21,7 @@ public class enemyLife : MonoBehaviour
         slider.gameObject.SetActive(false);
         fill.color = gradient.Evaluate(1f);
         anim = GetComponent<Animator>();
+        _waveManager = GameObject.Find("GameManager").GetComponent<waveManager>();
     }
     private void Update()
     {        
@@ -40,6 +42,7 @@ public class enemyLife : MonoBehaviour
    private void Die()
    {
        anim.SetBool("isDeath",true);
+       _waveManager.enemiesSpawned -= 1;
        Destroy(gameObject, 10f);
    }
 }
