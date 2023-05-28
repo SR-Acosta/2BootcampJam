@@ -8,9 +8,17 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
    public int recollectedTreasures;
-   private void Start()
+   public int totalTreasures;
 
+   public TMP_Text totalScore;
+   private void Start()
    {
       recollectedTreasures = 0;
+      totalTreasures = 0;
+   }
+
+   private void Update()
+   {
+      totalScore.text = totalTreasures.ToString();
    }
 }

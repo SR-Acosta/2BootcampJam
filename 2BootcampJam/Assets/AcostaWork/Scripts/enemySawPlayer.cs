@@ -8,8 +8,10 @@ public class enemySawPlayer : MonoBehaviour
    private AIDestinationSetter targetManager;
    private Transform playerDetected;
    private Transform reloadMula;
+   private Animator anim;
    private void Start()
    {
+      anim = GetComponentInParent<Animator>();
       targetManager = GetComponentInParent<AIDestinationSetter>();
       targetManager.target = GameObject.FindWithTag("Mula").transform;
       playerDetected = GameObject.FindWithTag("Player").transform;
@@ -20,6 +22,7 @@ public class enemySawPlayer : MonoBehaviour
       if (other.gameObject.tag == "Player")
       {
          targetManager.target = playerDetected;
+         anim.SetBool("isAttacking",false);
       }
    }
    private void OnTriggerExit2D(Collider2D other)

@@ -8,7 +8,7 @@ public class mulaEnemyDetection : MonoBehaviour
     private AIPath aiPath;
     private void Start()
     {
-        aiPath = GetComponent<AIPath>();
+        aiPath = GetComponentInParent<AIPath>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
