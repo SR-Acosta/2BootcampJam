@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class mulaLife : MonoBehaviour
 {
     public Slider slider;
@@ -35,5 +36,6 @@ public class mulaLife : MonoBehaviour
     private void Die()
     {
         Destroy(gameObject, 2f);
+        SceneManager.LoadScene(1);
     }
 }

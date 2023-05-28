@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
    public int recollectedTreasures;
    public int totalTreasures;
-
    public TMP_Text totalScore;
    private void Start()
    {

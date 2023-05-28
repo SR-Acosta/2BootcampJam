@@ -8,6 +8,7 @@ public class PlayerControllerAcosta : MonoBehaviour
     private Vector2 direction;
     private float lastX;
     public Transform playerGX;
+    public Transform lifeBarGX;
     public Animator anim;
     private void Start()
     {
@@ -48,11 +49,13 @@ public class PlayerControllerAcosta : MonoBehaviour
         if (transform.position.x - lastX > 0)
         {
             playerGX.transform.localScale = new Vector3(1f, 1f, 1f);
+            lifeBarGX.transform.localScale = new Vector3(1f, 1f, 1f);
         }
 
         if (transform.position.x - lastX < 0)
         {
             playerGX.transform.localScale = new Vector3(-1f, 1f, 1f);
+            lifeBarGX.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         lastX = transform.position.x;
     }

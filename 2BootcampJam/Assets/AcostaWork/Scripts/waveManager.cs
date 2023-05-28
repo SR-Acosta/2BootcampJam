@@ -5,14 +5,30 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 public class waveManager : MonoBehaviour
 {
-    public int enemiesSpawned;
-    public int difficultyLevel;
+    [Header("Arrays")]
+    [Tooltip("The place you put the spawn points.")]
     public GameObject[] spawnPoints;
+    [Tooltip("The place you put the enemies prefabs.")]
     public GameObject[] enemies;
+    
+    [Header("Important Data")]
+    [Tooltip("Number of enemies in the scene. Int used for mob spawning.")]
+    public int enemiesSpawned;
+    [Tooltip("Time between the spawning of enemies.")]
     public float tiempoEnemigos;
     private float tiempoSiguienteEnemigo;
     private int enemyType;
     private GameManager _GM;
+
+    [Header("Level difficulty")] 
+    [Tooltip("Public variable to set the number of enemies you want in each level.")]
+    public int dificultyLV1;
+    [Tooltip("Public variable to set the number of enemies you want in each level.")]
+    public int dificultyLV2;
+    [Tooltip("Public variable to set the number of enemies you want in each level.")]
+    public int dificultyLV3;
+    private int difficultyLevel;
+    
     private void Start()
     {
         _GM = GameObject.Find("GameManager").GetComponent<GameManager>();
@@ -53,15 +69,15 @@ public class waveManager : MonoBehaviour
     {
         if (_GM.recollectedTreasures == 1)
         {
-            difficultyLevel = 5;
+            difficultyLevel = dificultyLV1;
         }
         else if (_GM.recollectedTreasures == 2)
         {
-            difficultyLevel = 10;
+            difficultyLevel = dificultyLV2;
         }
         else if (_GM.recollectedTreasures == 3)
         {
-            difficultyLevel = 15;
+            difficultyLevel = dificultyLV3;
         }
     }
 }

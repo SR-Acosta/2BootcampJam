@@ -6,6 +6,7 @@ using Pathfinding;
 public class skelletonGX : MonoBehaviour
 {
     private Transform skellGX;
+    public Transform skLifeBarGX;
     private AIPath _aiP;
     private Animator anim;
     private void Start()
@@ -24,11 +25,13 @@ public class skelletonGX : MonoBehaviour
         if (distance.x > 0.2f)
         {
             skellGX.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+            skLifeBarGX.transform.localScale = new Vector3(1f, 1f, 1f);
             anim.SetFloat("skMoving", distance.x);
         }
         if (distance.x < -0.2f)
         {
             skellGX.transform.localScale = new Vector3(-1.2f, 1.2f, 1.2f);
+            skLifeBarGX.transform.localScale = new Vector3(-1f, 1f, 1f);
             anim.SetFloat("skMoving", distance.x);
         }
     }

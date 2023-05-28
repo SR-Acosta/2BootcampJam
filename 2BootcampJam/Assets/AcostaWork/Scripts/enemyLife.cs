@@ -13,6 +13,9 @@ public class enemyLife : MonoBehaviour
     public Image fill;
     private Animator anim;
     private waveManager _waveManager;
+    private Rigidbody2D _rb;
+    public float timeAfterDead;
+    private enemyDropSystem _enemyDrop;
     private void Start()
     {
         slider.maxValue = lifeCount;
@@ -22,6 +25,9 @@ public class enemyLife : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
         anim = GetComponent<Animator>();
         _waveManager = GameObject.Find("GameManager").GetComponent<waveManager>();
+        _rb = GetComponent<Rigidbody2D>();
+        _rb.isKinematic = false;
+        _enemyDrop = GetComponent<enemyDropSystem>();
     }
     private void Update()
     {        
@@ -43,6 +49,9 @@ public class enemyLife : MonoBehaviour
    {
        anim.SetBool("isDeath",true);
        _waveManager.enemiesSpawned -= 1;
-       Destroy(gameObject, 10f);
+       _rb.isKinematic = true;
+       _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+       Destroy(gameObject, timeAfterDead);
+       _enemyDrop.Defeat();
    }
 }
