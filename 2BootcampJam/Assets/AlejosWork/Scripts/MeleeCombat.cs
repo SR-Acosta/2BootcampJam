@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MeleeCombat : MonoBehaviour
 {
+    public bool isAttacking = false;
     [SerializeField]
     private Transform attackController;//Not sure what this does
     [SerializeField]
@@ -15,12 +16,23 @@ public class MeleeCombat : MonoBehaviour
     private float timeSinceLastAttack;
     private void Update()
     {
-        if(timeSinceLastAttack > 0)
+        AttackTimeManager();
+    }
+    private void AttackTimeManager ()
+    {
+        if (timeSinceLastAttack > 0)
         {
             timeSinceLastAttack -= Time.deltaTime;
+            
         }
-        if (Input.GetButtonDown("Fire1") && timeSinceLastAttack <= 0){
+        if (timeSinceLastAttack <= 0)
+        {
+            //isAttacking = false;
+        }
+        if (Input.GetButtonDown("Fire1") && timeSinceLastAttack <= 0)
+        {
             Attack();
+            isAttacking = true;
             timeSinceLastAttack = attackInterval;
         }
     }

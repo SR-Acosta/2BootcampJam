@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,10 +7,17 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float playerSpeed;
+    [SerializeField]
+    private GameObject player;
+    private bool isAttacking;
     private Vector2 direction;
     private float lastX;
     public Transform playerGX;
-    
+
+    private void Start()
+    {
+        isAttacking = player.GetComponent<MeleeCombat>().isAttacking;
+    }
     private void Update()
     {
         MovePlayer();
@@ -17,12 +25,16 @@ public class PlayerController : MonoBehaviour
     }
     private void MovePlayer()//Simple normalized Player movement function
     {
-        direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        if (direction.sqrMagnitude > 1)
+        Debug.Log(isAttacking);
+        if (!isAttacking)
         {
-            direction.Normalize();
+            direction = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+            if (direction.sqrMagnitude > 1)
+            {
+                direction.Normalize();
+            }
+            transform.Translate(direction * Time.deltaTime * playerSpeed);
         }
-        transform.Translate(direction * Time.deltaTime * playerSpeed);
     }
     private void SideTurning() 
         //Function in charge of flipping the player sprite and it's children on que X axis, thanks to Santi Acosta, what a bless mano
