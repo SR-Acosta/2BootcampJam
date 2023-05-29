@@ -12,11 +12,12 @@ TagManager:
   - Attacks
   - enemyAttacks
   - treasureDetector
+  - FinishCollider
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Walls
   - Water
   - UI
   - 

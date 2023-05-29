@@ -23,7 +23,7 @@ public class treasureSpawn : MonoBehaviour
 
     private void spawningTreasure()
     {
-        int spawnPos = Random.Range(0, 4);
+        int spawnPos = Random.Range(0, 7);
         setTreasure = Random.Range(0,3);
         if (_gameManager.recollectedTreasures == 0 && regulatorTreasure < 3)
         {

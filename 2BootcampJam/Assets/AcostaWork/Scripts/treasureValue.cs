@@ -15,7 +15,7 @@ public class treasureValue : MonoBehaviour
         if (other.gameObject.tag == "Mula")
         {
             _GM.recollectedTreasures += value;
-            _GM.totalTreasures += value;
+            // _GM.totalTreasures += value;
             Destroy(gameObject);
         }
     }

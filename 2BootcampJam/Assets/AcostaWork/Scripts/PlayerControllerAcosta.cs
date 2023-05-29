@@ -10,9 +10,11 @@ public class PlayerControllerAcosta : MonoBehaviour
     public Transform playerGX;
     public Transform lifeBarGX;
     public Animator anim;
+    private Rigidbody2D _rigidbody;
     private void Start()
     {
         anim = GetComponent<Animator>();
+        _rigidbody = GetComponent<Rigidbody2D>();
     }
     private void Update()
     {
@@ -36,11 +38,40 @@ public class PlayerControllerAcosta : MonoBehaviour
         if (Input.GetKeyDown("k"))
         {
             anim.SetBool("isAttacking",true);
+            _rigidbody.isKinematic = true;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+
         }
 
         if (Input.GetKeyUp("k"))
         {
             anim.SetBool("isAttacking",false);
+
+        }
+
+        if (Input.GetKeyDown("d"))
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.None;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        }
+        if (Input.GetKeyDown("a"))
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.None;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        }
+        if (Input.GetKeyDown("s"))
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.None;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        }
+        if (Input.GetKeyDown("w"))
+        {
+            _rigidbody.constraints = RigidbodyConstraints2D.None;
+            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+
         }
     }
     private void SideTurning() 
@@ -50,12 +81,16 @@ public class PlayerControllerAcosta : MonoBehaviour
         {
             playerGX.transform.localScale = new Vector3(1f, 1f, 1f);
             lifeBarGX.transform.localScale = new Vector3(1f, 1f, 1f);
+            _rigidbody.isKinematic = false;
+
         }
 
         if (transform.position.x - lastX < 0)
         {
             playerGX.transform.localScale = new Vector3(-1f, 1f, 1f);
             lifeBarGX.transform.localScale = new Vector3(-1f, 1f, 1f);
+            _rigidbody.isKinematic = false;
+
         }
         lastX = transform.position.x;
     }
