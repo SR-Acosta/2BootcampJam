@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: fcae0b175f3834e96b79dab9d21a7145
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - GAME ROBOT
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 560eaf13c8d1e436895253709ffe8110, type: 3}
+  - {fileID: 12800000, guid: 5938b4bf3fa1b44cbb06b88e8625eb8b, type: 3}
+  - {fileID: 12800000, guid: f3a9cb7ccfab34e028f217d54dfd79be, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

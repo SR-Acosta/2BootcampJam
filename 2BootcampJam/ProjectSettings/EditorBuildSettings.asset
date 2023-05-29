@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/AcostaWork/Scenes/index.unity
+    guid: 33b54beaa5272462e9b1cd35a9fecd7c
+  - enabled: 1
     path: Assets/AcostaWork/Scenes/AcostaLab.unity
     guid: 6cfeba992d8bf46d9a85cd9ca5a71807
   - enabled: 1
     path: Assets/AcostaWork/Scenes/death.unity
     guid: 34a83a00cb89c44a8ad761eddd7d2102
+  - enabled: 1
+    path: Assets/AcostaWork/Scenes/credits.unity
+    guid: 36cbc4ad693864641b7c845d5933534b
   m_configObjects: {}

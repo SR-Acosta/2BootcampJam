@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 public class enemyLife : MonoBehaviour
@@ -16,6 +14,7 @@ public class enemyLife : MonoBehaviour
     private Rigidbody2D _rb;
     public float timeAfterDead;
     private enemyDropSystem _enemyDrop;
+    private GameManager _gameManager;
     private void Start()
     {
         slider.maxValue = lifeCount;
@@ -25,6 +24,8 @@ public class enemyLife : MonoBehaviour
         fill.color = gradient.Evaluate(1f);
         anim = GetComponent<Animator>();
         _waveManager = GameObject.Find("GameManager").GetComponent<waveManager>();
+        _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+
         _rb = GetComponent<Rigidbody2D>();
         _rb.isKinematic = false;
         _enemyDrop = GetComponent<enemyDropSystem>();
@@ -49,6 +50,7 @@ public class enemyLife : MonoBehaviour
    {
        anim.SetBool("isDeath",true);
        _waveManager.enemiesSpawned -= 1;
+       _gameManager.totalTreasures += 100;
        _rb.isKinematic = true;
        _rb.constraints = RigidbodyConstraints2D.FreezeAll;
        Destroy(gameObject, timeAfterDead);

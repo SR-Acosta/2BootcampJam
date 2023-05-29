@@ -14,14 +14,14 @@ public class mulaEnemyDetection : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            aiPath.enabled = false;
+            aiPath.canMove = false;
         }
     }
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
-            aiPath.enabled = true;
+            aiPath.canMove = true;
         }
     }
 }

@@ -45,7 +45,7 @@ public class waveManager : MonoBehaviour
     }
     private void CrearEnemigo()
     {
-        int spawnPos = Random.Range(0, 4);
+        int spawnPos = Random.Range(0, 7);
         if (_GM.recollectedTreasures == 1)
         {
             enemyType = 0;
