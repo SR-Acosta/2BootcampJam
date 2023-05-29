@@ -19,5 +19,6 @@ public class GameManager : MonoBehaviour
    private void Update()
    {
       totalScore.text = totalTreasures.ToString();
+      PlayerPrefs.SetInt("finalScore", totalTreasures);
    }
 }
