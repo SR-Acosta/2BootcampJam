@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AcostaWork/Scenes/credits.unity
     guid: 36cbc4ad693864641b7c845d5933534b
+  - enabled: 1
+    path: Assets/AlejosWork/Scenes/Scene1.unity
+    guid: 5f940164ba1f55e4fb57d13b612399dd
   m_configObjects: {}
