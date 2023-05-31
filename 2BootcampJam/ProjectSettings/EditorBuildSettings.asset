@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AlejosWork/Scenes/Scene1.unity
     guid: 5f940164ba1f55e4fb57d13b612399dd
+  - enabled: 1
+    path: Assets/AlejosWork/Scenes/MainMenu.unity
+    guid: 7280be90e1c35e9499f1cd5e7609dfba
   m_configObjects: {}
