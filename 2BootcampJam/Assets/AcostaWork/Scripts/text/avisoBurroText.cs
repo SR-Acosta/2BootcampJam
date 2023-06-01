@@ -23,8 +23,16 @@ public class avisoBurroText : MonoBehaviour
         if (_gameManager.recollectedTreasures == 3)
         {
             UiObject.SetActive(true);
+
+            disapearMessage();
             
         }
+    }
+
+    private IEnumerator disapearMessage()
+    {
+        yield return new WaitForSeconds(5f);
+        UiObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
