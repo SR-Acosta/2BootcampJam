@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
             if (direction.sqrMagnitude > 1)
             {
                 direction.Normalize();
+                Debug.Log("new branch");
             }
             transform.Translate(direction * Time.deltaTime * playerSpeed);
         }
