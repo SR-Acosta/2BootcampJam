@@ -28,7 +28,7 @@ public class SceneChanger : MonoBehaviour
     public void SceneGame()
     {
         isPaused = false;
-        SceneManager.LoadScene("Scene1");
+        SceneManager.LoadScene("AcostaLab");
     }
     public void SceneDefeat()
     {

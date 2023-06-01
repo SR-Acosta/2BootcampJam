@@ -1,7 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+
 public class PlayerControllerAcosta : MonoBehaviour
 {
     public float playerSpeed;
@@ -35,7 +38,7 @@ public class PlayerControllerAcosta : MonoBehaviour
     }
     private void attackPlayer()
     {
-        if (Input.GetKeyDown("k"))
+        if (Input.GetKeyDown("k") || Input.GetButtonDown("Fire1"))
         {
             anim.SetBool("isAttacking",true);
             _rigidbody.isKinematic = true;
@@ -43,10 +46,9 @@ public class PlayerControllerAcosta : MonoBehaviour
 
         }
 
-        if (Input.GetKeyUp("k"))
+        if (Input.GetKeyUp("k") || Input.GetButtonUp("Fire1"))
         {
             anim.SetBool("isAttacking",false);
-
         }
 
         if (Input.GetKeyDown("d"))
