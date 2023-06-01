@@ -18,7 +18,6 @@ public class SceneChanger : MonoBehaviour
     {
         if (canPause && Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("Pause Method");
             ScenePauser();
         }
     }
