@@ -33,6 +33,8 @@ public class mulaTreasureDetector : MonoBehaviour
             targetManager.target = reloadPlayer;
         }
     }
+    
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.tag == "Treasure")
