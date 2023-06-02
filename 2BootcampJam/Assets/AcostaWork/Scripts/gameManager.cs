@@ -14,10 +14,10 @@ public class GameManager : MonoBehaviour
    {
         recollectedTreasures = 0;
         totalTreasures = 0;
-        if (PlayerPrefs.GetInt("finalScore") != 0)
+        /*if (PlayerPrefs.GetInt("finalScore") != 0)
         {
             totalTreasures = PlayerPrefs.GetInt("finalScore");
-        }
+        }*/
       
       totalScore.text = totalTreasures.ToString();
    }

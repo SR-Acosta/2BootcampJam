@@ -20,7 +20,7 @@ public class textEspawner : MonoBehaviour
         if (col.gameObject.CompareTag("Player"))
         {
             //UiObject.SetActive(true);
-            autoHideMessages.Show(UiObject, 6f);
+            autoHideMessages.Show(UiObject, 4f);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

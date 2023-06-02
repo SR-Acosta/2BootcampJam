@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        isAttacking = player.GetComponent<MeleeCombat>().isAttacking;
+        //isAttacking = player.GetComponent<MeleeCombat>().isAttacking;
     }
     private void Update()
     {

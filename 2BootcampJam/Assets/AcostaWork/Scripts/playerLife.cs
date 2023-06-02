@@ -9,6 +9,7 @@ public class playerLife : MonoBehaviour
     public float lifeCount;
     public Gradient gradient;
     public Image fill;
+    private Animator anim;
     private void Start()
     {
         slider.maxValue = lifeCount;
@@ -16,6 +17,7 @@ public class playerLife : MonoBehaviour
         slider = GetComponentInChildren<Slider>();
         slider.gameObject.SetActive(false);
         fill.color = gradient.Evaluate(1f);
+        anim = GetComponent<Animator>();
     }
     private void Update()
     {        
@@ -28,6 +30,7 @@ public class playerLife : MonoBehaviour
     public void TakeDamagePlayer(float damage)
     {
         slider.value -= damage;
+        anim.SetTrigger("Hurt");
         if (slider.value <= 0)
         {
             Die();   

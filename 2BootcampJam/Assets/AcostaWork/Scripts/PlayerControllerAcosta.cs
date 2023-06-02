@@ -13,11 +13,16 @@ public class PlayerControllerAcosta : MonoBehaviour
     public Transform playerGX;
     public Transform lifeBarGX;
     public Animator anim;
-    private Rigidbody2D _rigidbody;
+    private MeleeCombat _mc;
+    //private Rigidbody2D _rigidbody;
+    public float canMove;
+    public bool canAttack;
     private void Start()
     {
+        canMove = 1;
+        canAttack = true;
         anim = GetComponent<Animator>();
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _mc = GetComponent<MeleeCombat>();
     }
     private void Update()
     {
@@ -32,83 +37,73 @@ public class PlayerControllerAcosta : MonoBehaviour
         {
             direction.Normalize();
         }
-        transform.Translate(direction * Time.deltaTime * playerSpeed);
-        anim.SetFloat("moveX", direction.x);
-        anim.SetFloat("moveY", direction.y);
+        transform.Translate(direction * Time.deltaTime * playerSpeed * canMove);
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            anim.SetInteger("AnimState", 2);
+            anim.SetInteger("AnimState", 2);
+        }
+        else
+        {
+            anim.SetInteger("AnimState", 0);
+            anim.SetInteger("AnimState", 0);
+        }
+        
     }
     private void attackPlayer()
     {
         if (Input.GetKeyDown("k") || Input.GetButtonDown("Fire1"))
         {
-            anim.SetBool("isAttacking",true);
-            _rigidbody.isKinematic = true;
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+            //anim.SetTrigger("Attack");
+            anim.SetBool("IsAttacking", true);
+            canMove = 0;
+            //StartCoroutine(LockPlayerMovement());
 
         }
 
         if (Input.GetKeyUp("k") || Input.GetButtonUp("Fire1"))
         {
-            anim.SetBool("isAttacking",false);
+            if (canAttack)
+            {
+                _mc.Attack();
+                canAttack = false;
+                StartCoroutine(LockPlayerAttack());
+            }            
+            anim.SetBool("IsAttacking",false);
+            StartCoroutine(LockPlayerMovement());
         }
 
-        if (Input.GetKeyDown("d"))
-        {
-            _rigidbody.constraints = RigidbodyConstraints2D.None;
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-        }
-        if (Input.GetKeyDown("a"))
-        {
-            _rigidbody.constraints = RigidbodyConstraints2D.None;
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-        }
-        if (Input.GetKeyDown("s"))
-        {
-            _rigidbody.constraints = RigidbodyConstraints2D.None;
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-        }
-        if (Input.GetKeyDown("w"))
-        {
-            _rigidbody.constraints = RigidbodyConstraints2D.None;
-            _rigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-        }
     }
-    private void SideTurning() 
-        //Function in charge of flipping the player sprite and it's children on que X axis, thanks to Santi Acosta, what a bless mano
-    {
-        /*if (transform.position.x - lastX > 0)
-        {
-            playerGX.transform.localScale = new Vector3(1f, 1f, 1f);
-            lifeBarGX.transform.localScale = new Vector3(1f, 1f, 1f);
-            _rigidbody.isKinematic = false;
-
-        }
-
-        if (transform.position.x - lastX < 0)
-        {
-            playerGX.transform.localScale = new Vector3(-1f, 1f, 1f);
-            lifeBarGX.transform.localScale = new Vector3(-1f, 1f, 1f);
-            _rigidbody.isKinematic = false;
-
-        }*/
+    private void SideTurning() //Function in charge of flipping the player sprite and it's children on que X axis, thanks to Santi Acosta, what a bless mano
+    {        
         if (Input.GetAxis("Horizontal") > 0) //This condition works visually better... but... who knows if the Acosta's aproach was a better practice.
         {
-            playerGX.transform.localScale = new Vector3(1f, 1f, 1f);
-            lifeBarGX.transform.localScale = new Vector3(1f, 1f, 1f);
-            _rigidbody.isKinematic = false;
+            playerGX.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+            lifeBarGX.transform.localScale = new Vector3(1.6f, 1.6f, 1.6f);
+            //_rigidbody.isKinematic = false;
 
         }
 
         if (Input.GetAxis("Horizontal") < 0)
         {
-            playerGX.transform.localScale = new Vector3(-1f, 1f, 1f);
-            lifeBarGX.transform.localScale = new Vector3(-1f, 1f, 1f);
-            _rigidbody.isKinematic = false;
+            playerGX.transform.localScale = new Vector3(-1.6f, 1.6f, 1.6f);
+            lifeBarGX.transform.localScale = new Vector3(-1.6f, 1.6f, 1.6f);
+            //_rigidbody.isKinematic = false;
 
         }
         lastX = transform.position.x;
+    }
+
+    private IEnumerator LockPlayerMovement()
+    {
+        //isMoving = 0;
+        yield return new WaitForSeconds(1f);
+        canMove = 1;
+    }
+    private IEnumerator LockPlayerAttack()
+    {
+        //isMoving = 0;
+        yield return new WaitForSeconds(0.7f);
+        canAttack = true;
     }
 }
