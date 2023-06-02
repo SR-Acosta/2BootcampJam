@@ -114,4 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f0269f738094de3b5e64a6ad004f31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  treasureCounterUI: []
   value: 1

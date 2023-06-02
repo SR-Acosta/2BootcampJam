@@ -6,40 +6,35 @@ using UnityEngine;
 public class avisoBurroText : MonoBehaviour
 {
     public GameObject UiObject;
+    [SerializeField]
+    private GameObject canvas;
+    private bool hasReached3;
+    private AutoHideMessages autoHideMessages;
     private GameManager _gameManager;
     void Start()
     {
+        autoHideMessages = canvas.GetComponent<AutoHideMessages>();
+        hasReached3 = false;
         UiObject.SetActive(false);
         _gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
     {
-        avisoBurro();
+        showTreasureDialog();
     }
 
-    private void avisoBurro()
+    private void showTreasureDialog()
     {
-        if (_gameManager.recollectedTreasures == 3)
+        if (_gameManager.recollectedTreasures == 3 && !hasReached3)
         {
-            UiObject.SetActive(true);
-
-            disapearMessage();
-            
+            autoHideMessages.Show(UiObject, 6f);
+            hasReached3 = true;
         }
-    }
 
-    private IEnumerator disapearMessage()
-    {
-        yield return new WaitForSeconds(5f);
-        UiObject.SetActive(false);
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.tag == "FinishCollider")
+        if (_gameManager.recollectedTreasures == 0)
         {
-            UiObject.SetActive(false);
+            hasReached3 = false;
         }
     }
 }

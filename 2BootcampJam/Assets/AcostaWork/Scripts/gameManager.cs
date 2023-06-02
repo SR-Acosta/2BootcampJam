@@ -12,8 +12,14 @@ public class GameManager : MonoBehaviour
    public TMP_Text totalScore;
    private void Start()
    {
-      recollectedTreasures = 0;
-      totalTreasures = 0;
+        recollectedTreasures = 0;
+        totalTreasures = 0;
+        if (PlayerPrefs.GetInt("finalScore") != 0)
+        {
+            totalTreasures = PlayerPrefs.GetInt("finalScore");
+        }
+      
+      totalScore.text = totalTreasures.ToString();
    }
 
    private void Update()

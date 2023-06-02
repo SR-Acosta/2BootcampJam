@@ -79,7 +79,7 @@ public class PlayerControllerAcosta : MonoBehaviour
     private void SideTurning() 
         //Function in charge of flipping the player sprite and it's children on que X axis, thanks to Santi Acosta, what a bless mano
     {
-        if (transform.position.x - lastX > 0)
+        /*if (transform.position.x - lastX > 0)
         {
             playerGX.transform.localScale = new Vector3(1f, 1f, 1f);
             lifeBarGX.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -88,6 +88,21 @@ public class PlayerControllerAcosta : MonoBehaviour
         }
 
         if (transform.position.x - lastX < 0)
+        {
+            playerGX.transform.localScale = new Vector3(-1f, 1f, 1f);
+            lifeBarGX.transform.localScale = new Vector3(-1f, 1f, 1f);
+            _rigidbody.isKinematic = false;
+
+        }*/
+        if (Input.GetAxis("Horizontal") > 0) //This condition works visually better... but... who knows if the Acosta's aproach was a better practice.
+        {
+            playerGX.transform.localScale = new Vector3(1f, 1f, 1f);
+            lifeBarGX.transform.localScale = new Vector3(1f, 1f, 1f);
+            _rigidbody.isKinematic = false;
+
+        }
+
+        if (Input.GetAxis("Horizontal") < 0)
         {
             playerGX.transform.localScale = new Vector3(-1f, 1f, 1f);
             lifeBarGX.transform.localScale = new Vector3(-1f, 1f, 1f);

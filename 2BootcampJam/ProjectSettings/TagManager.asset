@@ -13,6 +13,7 @@ TagManager:
   - enemyAttacks
   - treasureDetector
   - FinishCollider
+  - TreasureCounterUI
   layers:
   - Default
   - TransparentFX
