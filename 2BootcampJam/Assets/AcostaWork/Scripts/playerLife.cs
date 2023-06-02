@@ -10,6 +10,9 @@ public class playerLife : MonoBehaviour
     public Gradient gradient;
     public Image fill;
     private Animator anim;
+    private CineMachiner cineMachiner;
+    [SerializeField]
+    private GameObject cameraManager;
     private void Start()
     {
         slider.maxValue = lifeCount;
@@ -18,6 +21,7 @@ public class playerLife : MonoBehaviour
         slider.gameObject.SetActive(false);
         fill.color = gradient.Evaluate(1f);
         anim = GetComponent<Animator>();
+        cineMachiner = cameraManager.GetComponent<CineMachiner>();
     }
     private void Update()
     {        
@@ -29,8 +33,8 @@ public class playerLife : MonoBehaviour
     }
     public void TakeDamagePlayer(float damage)
     {
+        AnimationsAndEffects();
         slider.value -= damage;
-        anim.SetTrigger("Hurt");
         if (slider.value <= 0)
         {
             Die();   
@@ -40,5 +44,10 @@ public class playerLife : MonoBehaviour
     {
         Destroy(gameObject, 2f);
         SceneManager.LoadScene(1);
+    }
+    private void AnimationsAndEffects()
+    {
+        anim.SetTrigger("Hurt");
+        StartCoroutine(cineMachiner.ShakeCamera(0.3f));
     }
 }

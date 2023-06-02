@@ -97,7 +97,7 @@ public class PlayerControllerAcosta : MonoBehaviour
     private IEnumerator LockPlayerMovement()
     {
         //isMoving = 0;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.7f);
         canMove = 1;
     }
     private IEnumerator LockPlayerAttack()

@@ -9,6 +9,9 @@ public class mulaLife : MonoBehaviour
     public float lifeCount;
     public Gradient gradient;
     public Image fill;
+    private CineMachiner cineMachiner;
+    [SerializeField]
+    private GameObject cameraManager;
     private void Start()
     {
         slider.maxValue = lifeCount;
@@ -16,6 +19,7 @@ public class mulaLife : MonoBehaviour
         slider = GetComponentInChildren<Slider>();
         slider.gameObject.SetActive(false);
         fill.color = gradient.Evaluate(1f);
+        cineMachiner = cameraManager.GetComponent<CineMachiner>();
     }
     private void Update()
     {        
@@ -27,6 +31,7 @@ public class mulaLife : MonoBehaviour
     }
     public void TakeDamageMula(float damage)
     {
+        AnimationsAndEffects();
         slider.value -= damage;
         if (slider.value <= 0)
         {
@@ -37,5 +42,10 @@ public class mulaLife : MonoBehaviour
     {
         Destroy(gameObject, 2f);
         SceneManager.LoadScene(1);
+    }
+
+    private void AnimationsAndEffects()
+    {
+        StartCoroutine(cineMachiner.ShakeCamera(0.3f));
     }
 }
